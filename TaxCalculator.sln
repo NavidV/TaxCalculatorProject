@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxCalculatorService.APIPro
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataService.APIProject", "DataService.APIProject\DataService.APIProject.csproj", "{E643D3DB-E987-421A-8AC9-FD5CF2E61164}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxCalxulator.Test", "TaxCalxulator.Test\TaxCalxulator.Test.csproj", "{707CE428-CA9D-4D1C-AC32-B9D2FC6A450B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxCalculator.Test", "TaxCalxulator.Test\TaxCalculator.Test.csproj", "{707CE428-CA9D-4D1C-AC32-B9D2FC6A450B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
