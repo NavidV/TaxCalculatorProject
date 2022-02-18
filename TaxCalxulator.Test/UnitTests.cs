@@ -35,15 +35,14 @@ namespace TaxCalxulator.Test
                 .Options;
 
             dbContext = new ApplicationDbContext(_options);
-            calc= new TaxCalculatorRepository(dbContext);
+            calc = new TaxCalculatorRepository(dbContext);
         }
-        
 
         [TestMethod]
         public void TaxCalculatorTest()
         {
-                DateTime[] date = new DateTime[]
-          {
+            DateTime[] date = new DateTime[]
+        {
 
                 new DateTime(2013, 10, 1, 8, 15, 0),
                 new DateTime(2013, 10, 1, 8, 30, 1),
@@ -51,13 +50,11 @@ namespace TaxCalxulator.Test
                 new DateTime(2013, 10, 1, 9, 20, 3),
                 new DateTime(2013, 10, 1, 15, 32, 3),
 
-           };
+        };
 
-                var result = calc.GetTotalTax(_car, date, Enums.CitiesEnum.Gothenburg.ToString());
+            var result = calc.GetTotalTax(_car, date, Enums.CitiesEnum.Gothenburg.ToString());
 
-                Assert.AreEqual(39, result);
-
-            
+            Assert.AreEqual(39, result);
         }
 
         [TestMethod]
