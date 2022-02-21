@@ -60,7 +60,7 @@ namespace DataService.APIProject.Repository
 
         public async Task<CityDto> GetCityById(int id)
         {
-            SelectedCity city = await _dbContext.Cities.FirstOrDefaultAsync(x => x.Id == id);
+            SelectedCity city = await _dbContext.Cities.SingleOrDefaultAsync(x => x.Id == id);
             return _mapper.Map<CityDto>(city);
         }
     }

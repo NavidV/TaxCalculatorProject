@@ -38,7 +38,7 @@ namespace DataService.APIProject.Repository
         }
         public async Task<TaxFeeDto> Get(int id)
         {
-            CongestionTax fee = await _dbContext.TaxFees.FirstOrDefaultAsync(x => x.Id == id);
+            CongestionTax fee = await _dbContext.TaxFees.SingleOrDefaultAsync(x => x.Id == id);
             return _mapper.Map<TaxFeeDto>(fee);
         }
 

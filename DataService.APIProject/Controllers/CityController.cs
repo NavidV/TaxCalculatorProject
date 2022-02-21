@@ -36,6 +36,8 @@ namespace DataService.APIProject.Controllers
             try
             {
                 CityDto cityDto = await _cityRepository.GetCityById(id);
+                if (cityDto == null)
+                    return NotFound();
                 return Ok(cityDto);
             }
             catch (Exception ex)

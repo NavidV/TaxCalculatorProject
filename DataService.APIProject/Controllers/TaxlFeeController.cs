@@ -37,6 +37,8 @@ namespace DataService.APIProject.Controllers
             try
             {
                 var result = await _taxFeeRepository.Get(id);
+                if (result == null)
+                    return NotFound();
                 return Ok(result);
             }
             catch (Exception ex)
@@ -48,7 +50,7 @@ namespace DataService.APIProject.Controllers
         [HttpPost]
         public async Task<ActionResult<CongestionTax>> Post([FromQuery] TaxFeeDto newFee)
         {
-           try
+            try
             {
                 var model = await _taxFeeRepository.Add(newFee);
                 return Ok(model);
