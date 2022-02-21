@@ -114,6 +114,41 @@ namespace TaxCalculator.ServicesAPI.Repository
                     }
 
             });
+            _dbContext.VehicleTypes.Add(new VehicleType
+            {
+                Vehicle = Enums.VehiclesEnum.Car,
+                IsTaxFree=false,
+            });
+            _dbContext.VehicleTypes.Add(new VehicleType
+            {
+                Vehicle = Enums.VehiclesEnum.Foreign,
+                IsTaxFree = true,
+            });
+            _dbContext.VehicleTypes.Add(new VehicleType
+            {
+                Vehicle = Enums.VehiclesEnum.Bus,
+                IsTaxFree = true,
+            });
+            _dbContext.VehicleTypes.Add(new VehicleType
+            {
+                Vehicle = Enums.VehiclesEnum.Diplomat,
+                IsTaxFree = true,
+            });
+            _dbContext.VehicleTypes.Add(new VehicleType
+            {
+                Vehicle = Enums.VehiclesEnum.Military,
+                IsTaxFree = true,
+            });
+            _dbContext.VehicleTypes.Add(new VehicleType
+            {
+                Vehicle = Enums.VehiclesEnum.Motorbike,
+                IsTaxFree = true,
+            });
+            _dbContext.VehicleTypes.Add(new VehicleType
+            {
+                Vehicle = Enums.VehiclesEnum.Emergency,
+                IsTaxFree = true,
+            });
             _dbContext.SaveChanges();
         }
     }

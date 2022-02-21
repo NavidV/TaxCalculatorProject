@@ -76,5 +76,24 @@ namespace TaxCalxulator.Test
 
             Assert.AreEqual(0, result);
         }
+
+        [TestMethod]
+        public void TaxCalculatorForEmergency()
+        {
+            DateTime[] date = new DateTime[]
+           {
+
+                new DateTime(2013, 10, 1, 8, 15, 0),
+                new DateTime(2013, 10, 1, 8, 30, 1),
+                new DateTime(2013, 10, 1, 8, 45, 2),
+                new DateTime(2013, 10, 1, 9, 20, 3),
+                new DateTime(2013, 10, 1, 15, 32, 3),
+
+           };
+
+            var result = calc.GetTotalTax(_emergency, date, _selectedCity);
+
+            Assert.AreEqual(0, result);
+        }
     }
 }
