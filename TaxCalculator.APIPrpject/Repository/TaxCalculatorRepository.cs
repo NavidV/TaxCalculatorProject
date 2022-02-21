@@ -77,12 +77,8 @@ namespace TaxCalculator.ServicesAPI.Repository
         }
         private bool IsTaxFreeVehicle(VehicleType vehicle)
         {
-            return _dbContext.VehicleTypes.Any(v => v.Vehicle.Equals(vehicle.Vehicle));
-        }
-
-        public SelectedCity GetCity(int id)
-        {
-            return _dbContext.Cities.SingleOrDefault(c => c.Id == id);
+            VehicleType selectedVehicle = _dbContext.VehicleTypes.SingleOrDefault(v => v.Vehicle.Equals(vehicle.Vehicle));
+            return selectedVehicle.IsTaxFree;
         }
 
         public IEnumerable<VehicleType> GetVehicleTypes()
@@ -117,7 +113,7 @@ namespace TaxCalculator.ServicesAPI.Repository
             _dbContext.VehicleTypes.Add(new VehicleType
             {
                 Vehicle = Enums.VehiclesEnum.Car,
-                IsTaxFree=false,
+                IsTaxFree = false,
             });
             _dbContext.VehicleTypes.Add(new VehicleType
             {
