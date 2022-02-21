@@ -2,10 +2,10 @@
 
 namespace TaxCalculatorService.APIPrpject.Models
 {
-    public class VehicleType
+    public class SelectedCity
     {
         public int Id { get; set; }
-        public Enums.VehiclesEnum Vehicle { get; set; }
-        public bool IsTaxFree { get; set; }
+        public Enums.CitiesEnum City { get; set; }
+        public IEnumerable<CongestionTax> Taxes { get; set; }
     }
 }

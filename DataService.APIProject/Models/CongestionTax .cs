@@ -6,6 +6,6 @@
         public TimeSpan Start { get; set; }
         public TimeSpan End { get; set; }
         public double Fee { get; set; }
-        public int CityId { get; set; }
+        public int SelectedCityId { get; set; }
     }
 }

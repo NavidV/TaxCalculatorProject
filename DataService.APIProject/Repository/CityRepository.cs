@@ -18,7 +18,7 @@ namespace DataService.APIProject.Repository
 
         public async Task<CityDto> AddUpdateCity(CityDto model)
         {
-            City city = _mapper.Map<CityDto, City>(model);
+            SelectedCity city = _mapper.Map<CityDto, SelectedCity>(model);
             
             if (city.Id > 0)
             {
@@ -30,14 +30,14 @@ namespace DataService.APIProject.Repository
             }
             await _dbContext.SaveChangesAsync();
 
-            return _mapper.Map<City, CityDto>(city);
+            return _mapper.Map<SelectedCity, CityDto>(city);
         }
 
         public async Task<bool> DeleteCity(int id)
         {
             try
             {
-                City city = await _dbContext.Cities.FirstAsync(x => x.Id == id);
+                SelectedCity city = await _dbContext.Cities.FirstAsync(x => x.Id == id);
 
                 if (city == null)
                     return false;
@@ -54,13 +54,13 @@ namespace DataService.APIProject.Repository
 
         public async Task<IEnumerable<CityDto>> GetCities()
         {
-            List<City> citys = await _dbContext.Cities.ToListAsync();
+            List<SelectedCity> citys = await _dbContext.Cities.ToListAsync();
             return _mapper.Map<List<CityDto>>(citys);
         }
 
         public async Task<CityDto> GetCityById(int id)
         {
-            City city = await _dbContext.Cities.FirstOrDefaultAsync(x => x.Id == id);
+            SelectedCity city = await _dbContext.Cities.FirstOrDefaultAsync(x => x.Id == id);
             return _mapper.Map<CityDto>(city);
         }
     }

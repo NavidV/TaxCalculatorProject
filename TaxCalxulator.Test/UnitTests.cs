@@ -16,8 +16,10 @@ namespace TaxCalxulator.Test
     {
         private Mock<ApplicationDbContext> _mockc = new Mock<ApplicationDbContext>();
 
-        private readonly VehicleType _car = new VehicleType { Name = "car" };
-        private readonly VehicleType _emergency = new VehicleType { Name = "emergency" };
+        private readonly VehicleType _car = new VehicleType { Vehicle = Enums.VehiclesEnum.Car };
+        private readonly SelectedCity _selectedCity = new SelectedCity { City = Enums.CitiesEnum.Gothenburg };
+
+        private readonly VehicleType _emergency = new VehicleType { Vehicle = Enums.VehiclesEnum.Emergency };
         private IConfigurationBuilder builder;
         private IConfigurationRoot _configuration;
         private ApplicationDbContext dbContext;
@@ -52,7 +54,7 @@ namespace TaxCalxulator.Test
 
         };
 
-            var result = calc.GetTotalTax(_car, date, Enums.CitiesEnum.Gothenburg.ToString());
+            var result = calc.GetTotalTax(_car, date, _selectedCity);
 
             Assert.AreEqual(39, result);
         }
@@ -69,7 +71,8 @@ namespace TaxCalxulator.Test
                 new DateTime(2013, 1, 1, 9, 15, 3),
              };
 
-            var result = calc.GetTotalTax(_car, date, Enums.CitiesEnum.Gothenburg.ToString());
+
+            var result = calc.GetTotalTax(_car, date, _selectedCity);
 
             Assert.AreEqual(0, result);
         }

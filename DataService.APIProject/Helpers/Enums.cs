@@ -2,7 +2,7 @@
 
 namespace DataService.APIProject.Helpers
 {
-    public class Enums
+    public static class Enums
     {
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public enum VehiclesEnum

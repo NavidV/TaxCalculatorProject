@@ -2,7 +2,7 @@
 
 namespace TaxCalculatorService.APIProject.Helpers
 {
-    public static class Helper
+    public static class DateTimeHelper
     {
         public static bool IsBetween(TimeSpan dateToCompare, TimeSpan start, TimeSpan end)
         {

@@ -11,7 +11,7 @@ namespace TaxCalculatorService.APIPrpject.DbContexts
         }
         public DbSet<CongestionTax> TaxFees { get; set; }
         public DbSet<VehicleType> VehicleTypes { get; set; }
-        public DbSet<City> Cities { get; set; }
+        public DbSet<SelectedCity> Cities { get; set; }
    
     }
 }

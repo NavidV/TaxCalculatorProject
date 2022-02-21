@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TaxCalculator.ServicesAPI.Repository;
+using TaxCalculatorService.APIProject.Helpers;
 using TaxCalculatorService.APIPrpject.Models;
-using static TaxCalculatorService.APIProject.Helpers.Enums;
 
 namespace TaxCalculatorService.APIPrpject.Controllers
 {
@@ -16,16 +16,16 @@ namespace TaxCalculatorService.APIPrpject.Controllers
             _calculator = calculator;
         }
         [HttpGet]
-        public object GetTaxFee([FromQuery] VehiclesEnum vehicle, [FromQuery] DateTime[] dates, CitiesEnum city)
+        public IActionResult GetTaxFee([FromQuery] Enums.VehiclesEnum vehicle, [FromQuery] DateTime[] dates, Enums.CitiesEnum city)
         {
             try
             {
-                var result = _calculator.GetTotalTax(new VehicleType { Name = vehicle.ToString() }, dates, city.ToString());
+                var result = _calculator.GetTotalTax(new VehicleType { Vehicle = vehicle}, dates, new SelectedCity { City = city });
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(ex.Message); 
             }
         }
     }

@@ -10,8 +10,8 @@ namespace DataService.APIProject
         {
             CreateMap<CongestionTax, TaxFeeDto>();
             CreateMap<TaxFeeDto, CongestionTax>();
-            CreateMap<City, CityDto>();
-            CreateMap<CityDto, City>();
+            CreateMap<SelectedCity, CityDto>();
+            CreateMap<CityDto, SelectedCity>();
         }
     }
 }
