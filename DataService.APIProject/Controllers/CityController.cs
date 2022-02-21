@@ -8,80 +8,69 @@ namespace DataService.APIProject.Controllers
     [Route("api/Cities")]
     public class CityController : Controller
     {
-        protected ResponseDto _response;
         private ICityRepository _cityRepository;
 
         public CityController(ICityRepository cityRepository)
         {
             _cityRepository = cityRepository;
-            this._response = new ResponseDto();
         }
 
         [HttpGet]
-        public async Task<ResponseDto> Get()
+        public async Task<IActionResult> Get()
         {
             try
             {
                 IEnumerable<CityDto> cityDtos = await _cityRepository.GetCities();
-                _response.Result = cityDtos;
+                return Ok(cityDtos);
+
             }
             catch (Exception ex)
             {
-                _response.IsSuccessfull = false;
-                _response.ErrorMessages
-                    = new List<string>() { ex.Message.ToString() };
+                return BadRequest(ex.Message);
             }
-            return _response;
         }
 
         [HttpGet("{id:int}")]
-        public async Task<ResponseDto> Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
             try
             {
                 CityDto cityDto = await _cityRepository.GetCityById(id);
-                _response.Result = cityDto;
+                return Ok(cityDto);
             }
             catch (Exception ex)
             {
-                _response.IsSuccessfull = false;
-                _response.ErrorMessages
-                    = new List<string>() { ex.Message.ToString() };
+                return BadRequest(ex.Message);
+
             }
-            return _response;
         }
 
         [HttpPost]
-        public async Task<ResponseDto> Post([FromQuery] CityDto newCost)
+        public async Task<IActionResult> Post([FromQuery] CityDto newCost)
         {
             try
             {
                 var model = await _cityRepository.AddUpdateCity(newCost);
-                _response.Result = model;
+                return Ok(model);
             }
             catch (Exception ex)
             {
-                _response.IsSuccessfull = false;
-                _response.ErrorMessages
-                    = new List<string>() { ex.Message.ToString() };
+                return BadRequest(ex.Message);
             }
-            return _response;
         }
 
         [HttpDelete("{id}")]
-        public async Task<ResponseDto> Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             try
             {
-                _response.IsSuccessfull = await _cityRepository.DeleteCity(id);
+                return Ok(await _cityRepository.DeleteCity(id));
             }
             catch (Exception ex)
             {
-                _response.IsSuccessfull = false;
-                _response.ErrorMessages
-                    = new List<string>() { ex.Message.ToString() };
+                return BadRequest(ex.Message);
+
             }
-            return _response;
         }
     }
 }
