@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxCalculatorService.APIProject", "TaxCalculator.APIPrpject\TaxCalculatorService.APIProject.csproj", "{C72A318C-73FE-41C3-B8B2-E46116A11A2B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataService.APIProject", "DataService.APIProject\DataService.APIProject.csproj", "{E643D3DB-E987-421A-8AC9-FD5CF2E61164}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataRegistrationService.APIProject", "DataService.APIProject\DataRegistrationService.APIProject.csproj", "{E643D3DB-E987-421A-8AC9-FD5CF2E61164}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxCalculator.Test", "TaxCalxulator.Test\TaxCalculator.Test.csproj", "{707CE428-CA9D-4D1C-AC32-B9D2FC6A450B}"
 EndProject
