@@ -26,7 +26,7 @@ namespace DataService.APIProject.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return new ObjectResult(ex.Message) { StatusCode = 417 };
             }
         }
 
@@ -40,8 +40,7 @@ namespace DataService.APIProject.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
-
+                return new ObjectResult(ex.Message) { StatusCode = 417 };
             }
         }
 
@@ -55,7 +54,7 @@ namespace DataService.APIProject.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return new ObjectResult(ex.Message) { StatusCode = 417 };
             }
         }
 
@@ -68,8 +67,7 @@ namespace DataService.APIProject.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
-
+                return new ObjectResult(ex.Message) { StatusCode = 417 };
             }
         }
     }

@@ -25,7 +25,7 @@ namespace TaxCalculatorService.APIPrpject.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message); 
+                return new ObjectResult(ex.Message) { StatusCode = 417 };
             }
         }
     }
